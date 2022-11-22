@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Link } from 'react-router-dom';
 import '@splidejs/react-splide/css';
 
 const Veggie = () => {
@@ -13,7 +14,7 @@ const Veggie = () => {
 
     const getPolular = async () =>{
         // const api = await fetch(`https://api.spoonacular.com/recipes/random??apiKey=${process.env.API_KEY}&number=1`)
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=e2982fba611a4d3f9229d8261f91d493&number=9`)
+        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=687263c096d34c3faaf65f835001563d&number=9`)
 
         const data = await api.json()
         // console.log(data);
@@ -34,9 +35,11 @@ const Veggie = () => {
                     {veggie.map((el) =>(
                         <SplideSlide key={el.id}>
                         <Card>
-                            <p>{el.title}</p>
-                            <img src={el.image} alt={el.title} />
-                            <Gradient />
+                            <Link to={'/recipes/' + el.id}>                            
+                                <p>{el.title}</p>
+                                    <img src={el.image} alt={el.title} />
+                                <Gradient />
+                            </Link>
                         </Card>
                         </SplideSlide>
                     ))} 
