@@ -14,7 +14,7 @@ const Veggie = () => {
 
     const getPolular = async () =>{
         // const api = await fetch(`https://api.spoonacular.com/recipes/random??apiKey=${process.env.API_KEY}&number=1`)
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=687263c096d34c3faaf65f835001563d&number=9`)
+        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
 
         const data = await api.json()
         // console.log(data);
